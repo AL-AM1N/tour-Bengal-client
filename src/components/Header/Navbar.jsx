@@ -108,9 +108,9 @@ function Navbar() {
 
                         <Link to='/'>
                             <h1 className='font-serif font-bold text-4xl'>
-                                Imran
+                                Tour
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">
-                                    Khan
+                                    Bengal
                                 </span>
                             </h1>
                         </Link>

@@ -6,6 +6,10 @@ import { motion } from "motion/react"
 function BangladeshAllPackages({ packages }) {
 
     console.log(packages);
+    if (!Array.isArray(packages)) {
+        return <div className="text-center p-8 text-red-500 font-bold">Error: Packages data is invalid.</div>;
+    }
+
     return (
         <div className='pb-10 bg-[#faedeb]'>
             <motion.div

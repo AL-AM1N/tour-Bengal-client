@@ -23,7 +23,11 @@ function Home() {
       </div>
       <div>
         <h1 className='font-serif text-3xl text-center p-8 font-bold bg-[#faedeb]'>Bangladesh Tour Packages</h1>
-        <BangladeshAllPackages packages={packages.slice(0,6)}></BangladeshAllPackages>
+        {Array.isArray(packages) ? (
+          <BangladeshAllPackages packages={packages.slice(0,6)}></BangladeshAllPackages>
+        ) : (
+          <div className="text-center p-8 text-red-500 font-bold">Failed to load packages from the server.</div>
+        )}
         <div className='w-full flex justify-center items-center pb-10 bg-[#faedeb]'>
           <Link to='/bangladesh-tours'><button className="btn btn-primary bg-[#DF6951]">VIEW ALL</button></Link>
         </div>
