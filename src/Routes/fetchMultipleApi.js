@@ -1,8 +1,8 @@
 export const fetchMultipleApi = async() => {
     try{
-        const response1 = fetch('http://localhost:3000/packages');
-        const response2 = fetch('http://localhost:3000/bookings');
-        const response3 = fetch('http://localhost:3000/contactMessages');
+        const response1 = fetch('https://tour-bengal-server.vercel.app/packages');
+        const response2 = fetch('https://tour-bengal-server.vercel.app/bookings');
+        const response3 = fetch('https://tour-bengal-server.vercel.app/contactMessages');
 
         const [packagesRes, bookingsRes, contactMessagesRes] = await Promise.all([
             response1,response2, response3,

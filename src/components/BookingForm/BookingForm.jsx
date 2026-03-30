@@ -25,7 +25,7 @@ function BookingForm({ singlePackageDetail }) {
     };
 
     //console.log(newBooking);
-    fetch("http://localhost:3000/bookings", {
+    fetch("https://tour-bengal-server.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",

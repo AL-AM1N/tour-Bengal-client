@@ -8,7 +8,7 @@ function ManageBookings() {
   console.log(bookings);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/bookings/${id}`, {
+    fetch(`https://tour-bengal-server.vercel.app/bookings/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

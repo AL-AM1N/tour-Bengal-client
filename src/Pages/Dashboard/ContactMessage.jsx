@@ -10,7 +10,7 @@ function ContactMessage() {
 
   // Handle delete
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/contactMessages/${id}`, {
+    fetch(`https://tour-bengal-server.vercel.app/contactMessages/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

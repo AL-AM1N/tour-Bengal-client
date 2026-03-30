@@ -66,7 +66,7 @@ const UpdatePackage = () => {
       gallery: images.filter((img) => img.trim()),
     };
 
-    fetch(`http://localhost:3000/packages/${packageData._id}`, {
+    fetch(`https://tour-bengal-server.vercel.app/packages/${packageData._id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updatedPackage),
@@ -74,7 +74,7 @@ const UpdatePackage = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
-          // alert("Package updated successfully ✅");
+          // alert("Package updated successfully");
           toast.success("Package updated successfully", {
             position: "top-right",
             autoClose: 5000,

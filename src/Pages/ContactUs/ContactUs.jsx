@@ -26,7 +26,7 @@ function ContactUs() {
     };
 
     // Send the new message to the server
-    fetch("http://localhost:3000/contactMessages", {
+    fetch("https://tour-bengal-server.vercel.app/contactMessages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

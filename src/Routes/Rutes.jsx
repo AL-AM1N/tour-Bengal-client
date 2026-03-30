@@ -37,18 +37,18 @@ export const router = createBrowserRouter([
             index:true,
             path:"/",
             Component:Home,
-            loader:() => fetch('http://localhost:3000/packages'),
+            loader:() => fetch('https://tour-bengal-server.vercel.app/packages'),
         },
 
         {
           path:"/bangladesh-tours",
           Component:BangladeshTours,
-          loader:() => fetch('http://localhost:3000/packages'),
+          loader:() => fetch('https://tour-bengal-server.vercel.app/packages'),
         },
 
         {
           path:"/package-details/:id",
-          loader: ({params}) => fetch(`http://localhost:3000/packages/${params.id}`),
+          loader: ({params}) => fetch(`https://tour-bengal-server.vercel.app/packages/${params.id}`),
           Component:PackageDetails
         },
 
@@ -80,16 +80,16 @@ export const router = createBrowserRouter([
       {
         path:"/dashboard/manage-packages",
         Component:ManagePackages,
-        loader: () => fetch('http://localhost:3000/packages')
+        loader: () => fetch('https://tour-bengal-server.vercel.app/packages')
       },
       {
         path:"/dashboard/manage-bookings",
-        loader: () => fetch('http://localhost:3000/bookings'),
+        loader: () => fetch('https://tour-bengal-server.vercel.app/bookings'),
         Component:ManageBookings
       },
       {
         path:"/dashboard/contact-us",
-        loader: () => fetch('http://localhost:3000/contactMessages'),
+        loader: () => fetch('https://tour-bengal-server.vercel.app/contactMessages'),
         Component:ContactMessage
       },
       {
@@ -99,7 +99,7 @@ export const router = createBrowserRouter([
 
       {
         path: '/dashboard/manage-packages/update/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/packages/${params.id}`),
+        loader: ({ params }) => fetch(`https://tour-bengal-server.vercel.app/packages/${params.id}`),
         Component:UpdatePackage
  }
     ]

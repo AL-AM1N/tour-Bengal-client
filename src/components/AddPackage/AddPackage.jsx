@@ -58,7 +58,7 @@ const AddPackage = () => {
       gallery: images.filter((img) => img.trim()),
     };
 
-    fetch("http://localhost:3000/packages", {
+    fetch("https://tour-bengal-server.vercel.app/packages", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(packageData),

@@ -43,7 +43,7 @@ function ManagePackages() {
   const handleDelete = (id) => {
     console.log("Delete tour:", id);
 
-    fetch(`http://localhost:3000/packages/${id}`, {
+    fetch(`https://tour-bengal-server.vercel.app/packages/${id}`, {
       method:'DELETE'
     })
     .then(res => res.json())
