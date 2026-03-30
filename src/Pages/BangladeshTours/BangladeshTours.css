@@ -1,0 +1,26 @@
+/* Remove default react-tabs styles */
+.react-tabs__tab {
+  border: none;
+  bottom: 0;
+}
+
+/* Block tab base style */
+.block-tab {
+  text-align: center;
+  padding: 20px 0;
+  cursor: pointer;
+  font-weight: 500;
+  background: #f3f4f6; /* gray-100 */
+  transition: all 0.3s ease;
+}
+
+/* Active tab */
+.react-tabs__tab--selected.block-tab {
+  background: white;
+  font-weight: 600;
+}
+
+/* Remove focus outline */
+.react-tabs__tab:focus {
+  box-shadow: none;
+}
