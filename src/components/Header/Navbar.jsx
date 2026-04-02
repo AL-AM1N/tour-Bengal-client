@@ -4,9 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 function Navbar() {
 
-    /* =========================
-       Motion Scroll Effects
-    ========================== */
+    /* Motion Scroll Effects*/
     const { scrollY } = useScroll();
 
     const backgroundColor = useTransform(
@@ -27,9 +25,7 @@ function Navbar() {
         ["0px 0px 0px rgba(0,0,0,0)", "0px 8px 25px rgba(0,0,0,0.12)"]
     );
 
-    /* =========================
-       Desktop Links
-    ========================== */
+    /* Desktop Links */
     const link = (
         <>
             <li><Link to='/'>HOME</Link></li>
@@ -37,7 +33,7 @@ function Navbar() {
             <li>
                 <details>
                     <summary className="cursor-pointer">TOUR PACKAGES</summary>
-                    <ul className="p-2 bg-base-100 w-52 z-[10] shadow-md">
+                    <ul className="p-2 bg-base-100 w-52 z-10 shadow-md">
                         <li><Link to='/bangladesh-tours'>BANGLADESH TOURS</Link></li>
                         <li><Link to='/international-tours'>INTERNATIONAL TOURS</Link></li>
                     </ul>
@@ -47,9 +43,7 @@ function Navbar() {
         </>
     );
 
-    /* =========================
-       Mobile Links
-    ========================== */
+    /* Mobile Links*/
     const mobileLinks = (
         <>
             <li><Link to='/'>HOME</Link></li>
@@ -109,7 +103,7 @@ function Navbar() {
                         <Link to='/'>
                             <h1 className='font-serif font-bold text-4xl'>
                                 Tour
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">
+                                <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-500 to-yellow-500">
                                     Bengal
                                 </span>
                             </h1>
@@ -127,7 +121,7 @@ function Navbar() {
                     <div className="navbar-end">
                         <Link to='/dashboard'>
                             <button className="btn bg-[#DF6951] border-none text-white shadow-md">
-                                ADMIN
+                                Login
                             </button>
                         </Link>
                     </div>

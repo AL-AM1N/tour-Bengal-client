@@ -16,92 +16,106 @@ import AddPackage from "../components/AddPackage/AddPackage";
 import UpdatePackage from "../components/UpdatePackage/UpdatePackage";
 import ContactMessage from "../Pages/Dashboard/ContactMessage";
 import { fetchMultipleApi } from "./fetchMultipleApi";
+import AuthLayout from "../Pages/Root/AuthLayout";
+import Login from "../Pages/Authentication/Login/Login";
 
-const apiLoader = async() => {
-  try{
+const apiLoader = async () => {
+  try {
     const data = await fetchMultipleApi();
-    console.log('fetched data', data);
-  return {...data};
+    console.log("fetched data", data);
+    return { ...data };
   } catch (error) {
-    console.error('Error in loader:', error);
+    console.error("Error in loader:", error);
     throw new Error("failed to fetch data");
   }
 };
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component:Root,
-    errorElement:<ErrorPage></ErrorPage>,
-    children:[
-        {
-            index:true,
-            path:"/",
-            Component:Home,
-            loader:() => fetch('https://tour-bengal-server.vercel.app/packages'),
-        },
+    Component: Root,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        index: true,
+        path: "/",
+        Component: Home,
+        loader: () => fetch("https://tour-bengal-server.vercel.app/packages"),
+      },
 
-        {
-          path:"/bangladesh-tours",
-          Component:BangladeshTours,
-          loader:() => fetch('https://tour-bengal-server.vercel.app/packages'),
-        },
+      {
+        path: "/bangladesh-tours",
+        Component: BangladeshTours,
+        loader: () => fetch("https://tour-bengal-server.vercel.app/packages"),
+      },
 
-        {
-          path:"/package-details/:id",
-          loader: ({params}) => fetch(`https://tour-bengal-server.vercel.app/packages/${params.id}`),
-          Component:PackageDetails
-        },
+      {
+        path: "/package-details/:id",
+        loader: ({ params }) =>
+          fetch(`https://tour-bengal-server.vercel.app/packages/${params.id}`),
+        Component: PackageDetails,
+      },
 
-        {
-          path:"/about",
-          Component:AboutUs
-        },
-        {
-          path:"/contact",
-          Component:ContactUs
-        }
-
-    ]
+      {
+        path: "/about",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: ContactUs,
+      },
+    ],
   },
   {
-    path:"/dashboard",
-    Component:DashboardGate,
-    children:[
+    path: "/",
+    Component: AuthLayout,
+    children: [
       {
-        index:true,
-        loader:apiLoader,
-        Component:DashboardHome
+        path: "login",
+        Component:Login
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    Component: DashboardGate,
+    children: [
+      {
+        index: true,
+        loader: apiLoader,
+        Component: DashboardHome,
       },
       {
-        path:"/dashboard/home",
-        loader:apiLoader,
-        Component:DashboardHome,
+        path: "/dashboard/home",
+        loader: apiLoader,
+        Component: DashboardHome,
       },
       {
-        path:"/dashboard/manage-packages",
-        Component:ManagePackages,
-        loader: () => fetch('https://tour-bengal-server.vercel.app/packages')
+        path: "/dashboard/manage-packages",
+        Component: ManagePackages,
+        loader: () => fetch("https://tour-bengal-server.vercel.app/packages"),
       },
       {
-        path:"/dashboard/manage-bookings",
-        loader: () => fetch('https://tour-bengal-server.vercel.app/bookings'),
-        Component:ManageBookings
+        path: "/dashboard/manage-bookings",
+        loader: () => fetch("https://tour-bengal-server.vercel.app/bookings"),
+        Component: ManageBookings,
       },
       {
-        path:"/dashboard/contact-us",
-        loader: () => fetch('https://tour-bengal-server.vercel.app/contactMessages'),
-        Component:ContactMessage
+        path: "/dashboard/contact-us",
+        loader: () =>
+          fetch("https://tour-bengal-server.vercel.app/contactMessages"),
+        Component: ContactMessage,
       },
       {
-        path:"/dashboard/manage-packages/create",
-        Component:AddPackage
+        path: "/dashboard/manage-packages/create",
+        Component: AddPackage,
       },
 
       {
-        path: '/dashboard/manage-packages/update/:id',
-        loader: ({ params }) => fetch(`https://tour-bengal-server.vercel.app/packages/${params.id}`),
-        Component:UpdatePackage
- }
-    ]
-  }
+        path: "/dashboard/manage-packages/update/:id",
+        loader: ({ params }) =>
+          fetch(`https://tour-bengal-server.vercel.app/packages/${params.id}`),
+        Component: UpdatePackage,
+      },
+    ],
+  },
 ]);

@@ -37,7 +37,7 @@ function Dashboard() {
             <div className="px-4">
               <h1 className="font-bold text-3xl text-center">
                 Tour
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-500 to-yellow-500">
                   Bengal
                 </span>
               </h1>
@@ -92,7 +92,7 @@ function Dashboard() {
                       <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
                       <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     </svg>
-                    <span className="is-drawer-close:hidden">Homepage</span>
+                    <span className="is-drawer-close:hidden">Home</span>
                   </button>
                 </Link>
               </li>
