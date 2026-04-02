@@ -18,6 +18,7 @@ import ContactMessage from "../Pages/Dashboard/ContactMessage";
 import { fetchMultipleApi } from "./fetchMultipleApi";
 import AuthLayout from "../Pages/Root/AuthLayout";
 import Login from "../Pages/Authentication/Login/Login";
+import Registration from "../Pages/Authentication/Registration/Registration";
 
 const apiLoader = async () => {
   try {
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
       {
         path: "login",
         Component:Login
+      },
+      {
+        path:'register',
+        Component:Registration
       },
     ],
   },

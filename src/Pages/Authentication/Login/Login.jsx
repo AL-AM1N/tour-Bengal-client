@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const {
@@ -14,11 +16,11 @@ const Login = () => {
   return (
     <div className="hero bg-base-200">
       <div className="hero-content flex-col">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Please Login</h1>
-        </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl font-bold">Please Login</h1>
+            </div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <fieldset className="fieldset">
                 <label className="label">Email</label>
@@ -50,11 +52,14 @@ const Login = () => {
                 )}
                 <p>
                   Create account?{" "}
-                  <span className="font-bold underline">Register</span>
+                  <Link to="/register">
+                    <span className="font-bold underline">Register</span>
+                  </Link>
                 </p>
                 <button className="btn btn-neutral mt-4">Login</button>
               </fieldset>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

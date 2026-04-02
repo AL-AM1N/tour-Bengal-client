@@ -119,7 +119,7 @@ function Navbar() {
 
                     {/* RIGHT */}
                     <div className="navbar-end">
-                        <Link to='/dashboard'>
+                        <Link to='/login'>
                             <button className="btn bg-[#DF6951] border-none text-white shadow-md">
                                 Login
                             </button>
