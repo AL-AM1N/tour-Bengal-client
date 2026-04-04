@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import axios from "axios";
 
 const Registration = () => {
   const {
@@ -19,6 +20,21 @@ const Registration = () => {
     createUser(data.email, data.password)
       .then(async (result) => {
         console.log(result.user);
+
+        // update userinfo in the database
+
+        const userInfo = {
+          name: data.name,
+          email: data.email,
+          role: "user", // default role
+          created_at: new Date().toISOString(),
+          last_log_in: new Date().toString(),
+        };
+
+        const userRes = axios.post("https://tour-bengal-server.vercel.app/users", userInfo);
+        console.log(userRes.data);
+
+        navigate('/');
       })
       .catch((error) => {
         console.log(error);
