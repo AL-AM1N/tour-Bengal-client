@@ -19,6 +19,7 @@ import { fetchMultipleApi } from "./fetchMultipleApi";
 import AuthLayout from "../Pages/Root/AuthLayout";
 import Login from "../Pages/Authentication/Login/Login";
 import Registration from "../Pages/Authentication/Registration/Registration";
+import PrivateRoute from "./PrivateRoute";
 
 const apiLoader = async () => {
   try {
@@ -51,9 +52,10 @@ export const router = createBrowserRouter([
 
       {
         path: "/package-details/:id",
+        element: <PrivateRoute><PackageDetails></PackageDetails></PrivateRoute>,
         loader: ({ params }) =>
           fetch(`https://tour-bengal-server.vercel.app/packages/${params.id}`),
-        Component: PackageDetails,
+        
       },
 
       {
